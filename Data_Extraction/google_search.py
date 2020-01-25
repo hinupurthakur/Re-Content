@@ -6,11 +6,11 @@ def data_pull() :
     if platform == "linux" or platform == "linux2":
         con = sqlite3.connect('/home/nupur/.config/google-chrome/Default/History')
         c = con.cursor()
-        c.execute("SELECT datetime(last_visit_time/1000000-11644473600,'unixepoch','localtime'), url FROM urls ORDER BY last_visit_time where")
+        c.execute("SELECT url FROM urls where date(last_visit_time/1000000-11644473600,'unixepoch','localtime') = date('now')")
         results = c.fetchall()
         with open("Output/google_search.txt","w+") as out :
             for r in results :
-                out.write('|'.join(str(s) for s in r) + '\n')
+                out.write(''.join(str(s) for s in r) + '\n')
     elif platform == "darwin":
         print("Mac")
     elif platform == "win32":
