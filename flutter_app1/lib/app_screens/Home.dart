@@ -62,7 +62,7 @@ class FlightImageAsset extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    AssetImage assetImage=AssetImage('images/logo.png');
+    AssetImage assetImage=AssetImage('../images/logo.png');
     Image image=Image(image: assetImage,width: 100,height: 100,alignment: Alignment.center);
     //child:Image
      // (
